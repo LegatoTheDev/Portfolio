@@ -1,38 +1,40 @@
-/* Flexbox for portGallery */
+/* General Styles for Port Gallery */
 .portGallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.2rem; /* Space between items */
-    padding: 0 10px; /* Optional: Add padding if you want space around the gallery */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns by default */
+    gap: 0.2rem;  /* Spacing between gallery items */
+    width: 100%;  /* Ensure the gallery container takes full width */
+    padding: 0 10px;  /* Optional: Add padding around the gallery */
 }
 
-.portGallery > .item {
-    flex-basis: calc(33.33% - 0.2rem); /* 3 items per row (adjusted for gap) */
-    box-sizing: border-box; /* Prevents padding from affecting width */
-}
-
-/* Responsive: Two items per row on medium screens */
+/* Responsive: Two columns on medium screens (max-width 768px) */
 @media (max-width: 768px) {
-    .portGallery > .item {
-        flex-basis: calc(50% - 0.2rem); /* 2 items per row */
+    .portGallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
     }
 }
 
-/* Responsive: One item per row on small screens */
+/* Responsive: One column on small screens (max-width 480px) */
 @media (max-width: 480px) {
-    .portGallery > .item {
-        flex-basis: calc(100% - 0.2rem); /* 1 item per row */
+    .portGallery {
+        grid-template-columns: 1fr; /* 1 column on small screens */
     }
 }
 
-/* Optional: Adjust for specific item styles */
+/* Styling for the items inside the gallery */
+.portGallery > .item {
+    box-sizing: border-box; /* Ensure padding doesn't affect the item width */
+}
+
+/* Image transition effect (optional) */
 .portGallery .pics {
     -webkit-transition: all 350ms ease;
     transition: all 350ms ease;
     cursor: pointer;
-    margin: 0 0;
+    margin: 0;
 }
 
+/* Sidebar Styles */
 .port-sidebar {
     position: fixed;
     top: 0;
@@ -53,6 +55,7 @@
     transform: translateX(0); /* Slide-in when open */
 }
 
+/* Close button inside sidebar */
 .close-btn {
     background-color: red;
     color: white;
@@ -64,10 +67,12 @@
     right: 20px;
 }
 
+/* Sidebar content styles */
 .sidebar-content {
     margin: 10%;
 }
 
+/* Other images section (for extra images or gallery items) */
 .other-images {
     display: flex;
     gap: 10px;
@@ -75,9 +80,10 @@
 }
 
 .other-image {
-    width: 100%;
+    width: 100%;  /* Ensure images fill the container */
 }
 
+/* Overlay styles (for overlay background when sidebar is open) */
 .overlay {
     position: fixed;
     top: 0;
@@ -89,10 +95,10 @@
     cursor: pointer;
 }
 
+/* Paragraph styling */
 p {
     font-family: monospace;
     letter-spacing: 0.07em;
     line-height: 1.5em;
     font-weight: bold;
 }
-
