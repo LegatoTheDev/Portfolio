@@ -1,34 +1,33 @@
-/* Main Portfolio Gallery Layout (CSS Grid) */
+/* Main Portfolio Gallery Layout (CSS Columns) */
 .portGallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Default: 3 equal columns */
-    grid-template-rows: auto; /* Auto-adjust rows based on content */
-    gap: 0;  /* Remove gaps between items for a seamless effect */
-    width: 100%;  /* Ensure the container spans full width */
+    column-count: 3; /* Default: 3 equal columns */
+    column-gap: 0; /* Remove gaps between columns for seamless look */
+    width: 100%; /* Ensure the container spans full width */
     padding: 0; /* Remove padding around the gallery */
 }
 
 /* 2 Columns for Medium Screens (max-width: 768px) */
 @media (max-width: 768px) {
     .portGallery {
-        grid-template-columns: repeat(2, 1fr);  /* 2 equal columns */
+        column-count: 2;  /* 2 columns for medium screens */
     }
 }
 
 /* 1 Column for Small Screens (max-width: 480px) */
 @media (max-width: 480px) {
     .portGallery {
-        grid-template-columns: 1fr;  /* 1 column */
+        column-count: 1;  /* 1 column for smaller screens */
     }
 }
 
 /* Styling for Gallery Items */
 .portGallery > .item {
-    box-sizing: border-box;  /* Ensures padding does not affect item width */
-    margin: 0;  /* Remove margin between items */
+    display: inline-block;  /* Items will align like inline-block elements */
+    width: 100%;  /* Each item takes the full width of its column */
+    margin: 0; /* Remove margin between items */
 }
 
-/* Optional: Image transition effect */
+/* Image Sizing (retaining original behavior) */
 .portGallery .pics {
     width: 100%;  /* Ensure images fill their container */
     height: auto; /* Maintain aspect ratio of images */
