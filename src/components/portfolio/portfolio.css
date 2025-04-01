@@ -1,44 +1,43 @@
 /* Main Portfolio Gallery Layout */
 .portGallery {
-    column-count: 3; /* Default: 3 equal columns */
-    column-gap: 0; /* Remove gaps between columns for seamless look */
-    width: 100%;  /* Ensure the container spans full width */
-    padding: 0;  /* Remove padding around the gallery */
+    display: grid;                /* Use CSS grid for more control */
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns on large screens */
+    gap: 0.2rem;                  /* Spacing between images */
+    width: 100%;                  /* Ensure it spans the full width */
+    padding: 0;                   /* Remove any padding */
 }
 
-/* Ensuring 3 columns for full-screen sizes */
+/* Ensuring 3 columns for full screen (default behavior) */
 @media (min-width: 1024px) {
     .portGallery {
-        column-count: 3; /* 3 columns on full screens */
-        column-gap: 0;  /* Ensure no gaps between the images */
+        grid-template-columns: repeat(3, 1fr); /* 3 columns */
     }
 }
 
 /* For medium screens (tablet size) */
 @media (max-width: 768px) {
     .portGallery {
-        column-count: 2;  /* 2 equal columns */
+        grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
     }
 }
 
 /* For small screens (mobile size) */
 @media (max-width: 480px) {
     .portGallery {
-        column-count: 1;  /* 1 column */
+        grid-template-columns: 1fr; /* 1 column */
     }
 }
 
 /* Gallery Item Styling */
 .portGallery > .item {
-    display: inline-block; /* Ensures images appear as inline-block */
-    width: 100%;  /* Ensure each item fills its column */
-    margin: 0;  /* Remove margin between items */
+    width: 100%;    /* Ensure each item fills the column space */
+    margin: 0;      /* Remove any margin between items */
 }
 
 /* Image Sizing (retaining original behavior) */
 .portGallery .pics {
-    width: 100%;  /* Ensure images fill their container */
-    height: auto; /* Maintain aspect ratio of images */
+    width: 100%;    /* Ensure images fill their container */
+    height: auto;   /* Maintain aspect ratio of images */
     transition: all 350ms ease;
     cursor: pointer;
 }
