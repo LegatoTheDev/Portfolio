@@ -1,40 +1,49 @@
+/* Main Portfolio Gallery Layout */
 .portGallery {
-    -webkit-column-count: 3;
-    -moz-column-count: 3;
-    column-count: 3;
-    -webkit-column-width: 33%;
-    -moz-column-width: 33%;
-    column-width: 33%;
-    padding: 0 0;
-    gap: .2rem;
+    column-count: 3; /* Default: 3 equal columns */
+    column-gap: 0; /* Remove gaps between columns for seamless look */
+    width: 100%;  /* Ensure the container spans full width */
+    padding: 0;  /* Remove padding around the gallery */
 }
 
-
-
-.portGallery .pics {
-    -webkit-transition: all 350ms ease;
-    transition: all 350ms ease;
-    cursor: pointer;
-    margin: 0 0;
+/* Ensuring 3 columns for full-screen sizes */
+@media (min-width: 1024px) {
+    .portGallery {
+        column-count: 3; /* 3 columns on full screens */
+        column-gap: 0;  /* Ensure no gaps between the images */
+    }
 }
 
+/* For medium screens (tablet size) */
 @media (max-width: 768px) {
     .portGallery {
-        column-count: 2;  /* 2 columns for medium screens */
+        column-count: 2;  /* 2 equal columns */
     }
 }
 
-@media (max-width: 480px) { 
+/* For small screens (mobile size) */
+@media (max-width: 480px) {
     .portGallery {
-        -webkit-column-count: 1;
-        -moz-column-count: 1;
-        column-count: 1;
-        -webkit-column-width: 100%;
-        -moz-column-width: 100%;
-        column-width: 100%;
+        column-count: 1;  /* 1 column */
     }
 }
 
+/* Gallery Item Styling */
+.portGallery > .item {
+    display: inline-block; /* Ensures images appear as inline-block */
+    width: 100%;  /* Ensure each item fills its column */
+    margin: 0;  /* Remove margin between items */
+}
+
+/* Image Sizing (retaining original behavior) */
+.portGallery .pics {
+    width: 100%;  /* Ensure images fill their container */
+    height: auto; /* Maintain aspect ratio of images */
+    transition: all 350ms ease;
+    cursor: pointer;
+}
+
+/* Sidebar Styles */
 .port-sidebar {
     position: fixed;
     top: 0;
@@ -55,6 +64,7 @@
     transform: translateX(0); /* Slide-in when open */
 }
 
+/* Close button inside sidebar */
 .close-btn {
     background-color: red;
     color: white;
@@ -66,11 +76,12 @@
     right: 20px;
 }
 
+/* Sidebar content */
 .sidebar-content {
-    /* margin-top: 50px; */
     margin: 10%;
 }
 
+/* Other Images Section (if needed for extra gallery items) */
 .other-images {
     display: flex;
     gap: 10px;
@@ -81,23 +92,8 @@
     width: 100%;
 }
 
-@media (max-width: 768px) {
-    .port-sidebar {
-        position: fixed;
-      width: 80%; /* Take up 80% of the viewport width on smaller screens */
-      /* right: 100%; */
-      /* left: 100%; */
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .port-sidebar {
-      width: 100%; /* Take up full viewport width on very small screens */
-      /* left: 25vw; */
-    }
-  }
-
-  .overlay {
+/* Overlay Styles (for sidebar background overlay) */
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -106,11 +102,12 @@
     background-color: rgba(0, 0, 0, 0.193);
     z-index: 999;
     cursor: pointer;
-  }
+}
 
-  p {
+/* Paragraph Styling */
+p {
     font-family: monospace;
     letter-spacing: 0.07em;
     line-height: 1.5em;
     font-weight: bold;
-  }
+}
