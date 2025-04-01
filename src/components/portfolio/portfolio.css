@@ -1,0 +1,116 @@
+.portGallery {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-width: 33%;
+    -moz-column-width: 33%;
+    column-width: 33%;
+    padding: 0 0;
+    gap: .2rem;
+}
+
+.portGallery .pics {
+    -webkit-transition: all 350ms ease;
+    transition: all 350ms ease;
+    cursor: pointer;
+    margin: 0 0;
+}
+
+@media (max-width: 768px) {
+    .portGallery {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media (max-width: 480px) { 
+    .portGallery {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+        -webkit-column-width: 100%;
+        -moz-column-width: 100%;
+        column-width: 100%;
+    }
+}
+
+.port-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    box-shadow: -4px 0px 12px rgba(0, 0, 0, 0.012);
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%); /* Hidden by default */
+    cursor: pointer;
+}
+
+.port-sidebar.open {
+    transform: translateX(0); /* Slide-in when open */
+}
+
+.close-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.sidebar-content {
+    /* margin-top: 50px; */
+    margin: 10%;
+}
+
+.other-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.other-image {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .port-sidebar {
+        position: fixed;
+      width: 80%; /* Take up 80% of the viewport width on smaller screens */
+      /* right: 100%; */
+      /* left: 100%; */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .port-sidebar {
+      width: 100%; /* Take up full viewport width on very small screens */
+      /* left: 25vw; */
+    }
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.193);
+    z-index: 999;
+    cursor: pointer;
+  }
+
+  p {
+    font-family: monospace;
+    letter-spacing: 0.07em;
+    line-height: 1.5em;
+    font-weight: bold;
+  }
