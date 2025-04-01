@@ -8,7 +8,7 @@
 }
 
 /* Responsive: Two columns on medium screens (max-width 768px) */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .portGallery {
         grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
     }
