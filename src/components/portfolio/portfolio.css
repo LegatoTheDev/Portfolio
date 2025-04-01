@@ -1,42 +1,40 @@
+/* Main Portfolio Gallery Layout (CSS Grid) */
 .portGallery {
-    -webkit-column-count: 3;
-    -moz-column-count: 3;
-    column-count: 3;
-    -webkit-column-width: 33%;
-    -moz-column-width: 33%;
-    column-width: 33%;
-    padding: 0 0;
-    gap: .2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Default: 3 equal columns */
+    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr)); /* Dynamic row height */
+    gap: 0.2rem;  /* Gap between gallery items */
+    width: 100%;  /* Ensure the container spans full width */
+    padding: 0 10px; /* Optional: Padding around the gallery */
 }
 
+/* 2 Columns for Medium Screens (max-width: 768px) */
+@media (max-width: 768px) {
+    .portGallery {
+        grid-template-columns: repeat(2, 1fr);  /* 2 equal columns */
+    }
+}
 
+/* 1 Column for Small Screens (max-width: 480px) */
+@media (max-width: 480px) {
+    .portGallery {
+        grid-template-columns: 1fr;  /* 1 column */
+    }
+}
 
+/* Styling for Gallery Items */
+.portGallery > .item {
+    box-sizing: border-box;  /* Ensures padding does not affect item width */
+}
+
+/* Optional: Image transition effect */
 .portGallery .pics {
-    -webkit-transition: all 350ms ease;
     transition: all 350ms ease;
     cursor: pointer;
-    margin: 0 0;
+    margin: 0;
 }
 
-@media (min-width: 768px) {
-    .portGallery {
-        -webkit-column-count: 3;
-        -moz-column-count: 3;
-        column-count: 3;
-    }
-}
-
-@media (max-width: 480px) { 
-    .portGallery {
-        -webkit-column-count: 1;
-        -moz-column-count: 1;
-        column-count: 1;
-        -webkit-column-width: 100%;
-        -moz-column-width: 100%;
-        column-width: 100%;
-    }
-}
-
+/* Sidebar Styles */
 .port-sidebar {
     position: fixed;
     top: 0;
@@ -57,6 +55,7 @@
     transform: translateX(0); /* Slide-in when open */
 }
 
+/* Close button inside sidebar */
 .close-btn {
     background-color: red;
     color: white;
@@ -68,11 +67,12 @@
     right: 20px;
 }
 
+/* Sidebar content */
 .sidebar-content {
-    /* margin-top: 50px; */
     margin: 10%;
 }
 
+/* Other Images Section (if needed for extra gallery items) */
 .other-images {
     display: flex;
     gap: 10px;
@@ -83,23 +83,8 @@
     width: 100%;
 }
 
-@media (min-width: 768px) {
-    .port-sidebar {
-        position: fixed;
-      width: 80%; /* Take up 80% of the viewport width on smaller screens */
-      /* right: 100%; */
-      /* left: 100%; */
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .port-sidebar {
-      width: 100%; /* Take up full viewport width on very small screens */
-      /* left: 25vw; */
-    }
-  }
-
-  .overlay {
+/* Overlay Styles (for sidebar background overlay) */
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -108,11 +93,12 @@
     background-color: rgba(0, 0, 0, 0.193);
     z-index: 999;
     cursor: pointer;
-  }
+}
 
-  p {
+/* Paragraph Styling */
+p {
     font-family: monospace;
     letter-spacing: 0.07em;
     line-height: 1.5em;
     font-weight: bold;
-  }
+}
