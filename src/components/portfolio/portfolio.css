@@ -2,10 +2,10 @@
 .portGallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Default: 3 equal columns */
-    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr)); /* Dynamic row height */
-    gap: 0.2rem;  /* Gap between gallery items */
+    grid-template-rows: auto; /* Auto-adjust rows based on content */
+    gap: 0;  /* Remove gaps between items for a seamless effect */
     width: 100%;  /* Ensure the container spans full width */
-    padding: 0 10px; /* Optional: Padding around the gallery */
+    padding: 0; /* Remove padding around the gallery */
 }
 
 /* 2 Columns for Medium Screens (max-width: 768px) */
@@ -25,13 +25,15 @@
 /* Styling for Gallery Items */
 .portGallery > .item {
     box-sizing: border-box;  /* Ensures padding does not affect item width */
+    margin: 0;  /* Remove margin between items */
 }
 
 /* Optional: Image transition effect */
 .portGallery .pics {
+    width: 100%;  /* Ensure images fill their container */
+    height: auto; /* Maintain aspect ratio of images */
     transition: all 350ms ease;
     cursor: pointer;
-    margin: 0;
 }
 
 /* Sidebar Styles */
