@@ -163,13 +163,13 @@ let data = [
 
   {
     id: 10,
-    imgSrc: "./images/pennstate4x5.JPG",
+    imgSrc: "./images/pennstate4x5.jpg",
     title: "UIUC Game Day Graphics",
     description: "",
     otherImgs: [
       "./images/maryland4x5.jpg",
       "./images/NextUp4x5.jpg",
-      "./images/pennstate4x5.JPG",
+      "./images/pennstate4x5.jpg",
     ],
   },
   {
