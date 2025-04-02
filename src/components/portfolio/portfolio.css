@@ -1,27 +1,27 @@
 .portGallery {
     display: flex;
     flex-wrap: wrap;
-    gap: .2rem; /* Space between the images */
-    justify-content: space-between; /* Distribute space evenly between images */
+    margin: 0; /* Remove any margin from the container */
 }
 
 .portGallery .pics {
     transition: all 350ms ease;
     cursor: pointer;
-    margin: 0;
-    width: calc(33.33% - .2rem); /* Each image takes up 1/3 of the container, accounting for the gap */
-    object-fit: cover; /* Ensures images fill their box */
+    margin: 0; /* Remove any margin around the images */
+    padding: 0; /* Remove any padding */
+    width: calc(33.33%); /* Each image takes up 1/3 of the container */
+    object-fit: cover; /* Ensure images maintain aspect ratio */
 }
 
 @media (max-width: 768px) {
     .portGallery .pics {
-        width: calc(50% - .2rem); /* 2 images per row on smaller screens */
+        width: calc(50%); /* 2 images per row on medium screens */
     }
 }
 
 @media (max-width: 480px) {
     .portGallery .pics {
-        width: 100%; /* 1 image per row on mobile screens */
+        width: 100%; /* 1 image per row on smaller screens */
     }
 }
 
