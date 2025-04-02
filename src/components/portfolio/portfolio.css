@@ -1,4 +1,4 @@
-/* Keep your original grid sizing approach */
+/* PortGallery Layout: Columns for larger screens */
 .portGallery {
     -webkit-column-count: 3; /* Default to 3 columns for large screens */
     -moz-column-count: 3;
@@ -6,22 +6,33 @@
     -webkit-column-width: 33%; /* Divide into 3 equal columns */
     -moz-column-width: 33%;
     column-width: 33%;
-    padding: 0; /* No padding around the gallery */
-    gap: 0.2rem; /* Small gap between images */
+    padding: 0 0;
+    gap: .2rem; /* Gap between the images */
 }
 
-/* Keep your column-count adjustments for smaller screens */
+/* Image transition on hover */
+.portGallery .pics {
+    -webkit-transition: all 350ms ease;
+    transition: all 350ms ease;
+    cursor: pointer;
+    margin: 0 0; /* Remove margin between images */
+}
+
+/* Media Queries for Smaller Screens */
+
+/* For screens smaller than 768px, 2 columns */
 @media (max-width: 768px) {
     .portGallery {
-        -webkit-column-count: 2; /* 2 columns for medium-sized screens */
+        -webkit-column-count: 2;
         -moz-column-count: 2;
         column-count: 2;
     }
 }
 
-@media (max-width: 480px) {
+/* For screens smaller than 480px, 1 column */
+@media (max-width: 480px) { 
     .portGallery {
-        -webkit-column-count: 1; /* 1 column for small screens */
+        -webkit-column-count: 1;
         -moz-column-count: 1;
         column-count: 1;
         -webkit-column-width: 100%;
@@ -30,20 +41,7 @@
     }
 }
 
-/* Item Style for Flexibility */
-.portGallery > .item {
-    margin: 0; /* Ensure no margin between items */
-}
-
-/* Image Styling (Retaining your original sizing) */
-.portGallery .pics {
-    width: 100%; /* Ensure each image takes up the full width of the column */
-    height: auto; /* Maintain aspect ratio */
-    transition: all 350ms ease;
-    cursor: pointer;
-}
-
-/* Sidebar Styles (Unchanged) */
+/* Sidebar Styling */
 .port-sidebar {
     position: fixed;
     top: 0;
@@ -64,7 +62,6 @@
     transform: translateX(0); /* Slide-in when open */
 }
 
-/* Close button inside sidebar */
 .close-btn {
     background-color: red;
     color: white;
@@ -76,11 +73,7 @@
     right: 20px;
 }
 
-/* Other Content Sections (Unchanged) */
-.sidebar-content {
-    margin: 10%;
-}
-
+/* Other Images Styling */
 .other-images {
     display: flex;
     gap: 10px;
@@ -91,7 +84,21 @@
     width: 100%;
 }
 
-/* Overlay Styles (for sidebar background overlay) */
+/* Sidebar styling for smaller screens */
+@media (max-width: 768px) {
+    .port-sidebar {
+        position: fixed;
+        width: 80%; /* Take up 80% of the viewport width on smaller screens */
+    }
+}
+  
+@media (max-width: 480px) {
+    .port-sidebar {
+        width: 100%; /* Full width on very small screens */
+    }
+}
+
+/* Overlay Styling */
 .overlay {
     position: fixed;
     top: 0;
@@ -103,7 +110,7 @@
     cursor: pointer;
 }
 
-/* Paragraph Styling */
+/* Text Styling */
 p {
     font-family: monospace;
     letter-spacing: 0.07em;
