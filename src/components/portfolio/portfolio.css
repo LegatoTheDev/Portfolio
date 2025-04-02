@@ -1,27 +1,27 @@
 /* Main Portfolio Gallery Layout */
 .portGallery {
-    display: grid;                /* Use CSS grid for more control */
-    grid-template-columns: repeat(3, 1fr); /* 3 equal columns on large screens */
-    gap: 0.2rem;                  /* Spacing between images */
-    width: 100%;                  /* Ensure it spans the full width */
-    padding: 0;                   /* Remove any padding */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns for large screens */
+    gap: 0.2rem; /* Small gap between images */
+    padding: 0; /* Remove padding */
+    width: 100%; /* Ensure full width */
 }
 
-/* Ensuring 3 columns for full screen (default behavior) */
+/* Large screens (3 columns) */
 @media (min-width: 1024px) {
     .portGallery {
         grid-template-columns: repeat(3, 1fr); /* 3 columns */
     }
 }
 
-/* For medium screens (tablet size) */
+/* Medium screens (2 columns for tablets) */
 @media (max-width: 768px) {
     .portGallery {
-        grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
     }
 }
 
-/* For small screens (mobile size) */
+/* Small screens (1 column for mobiles) */
 @media (max-width: 480px) {
     .portGallery {
         grid-template-columns: 1fr; /* 1 column */
@@ -30,16 +30,19 @@
 
 /* Gallery Item Styling */
 .portGallery > .item {
-    width: 100%;    /* Ensure each item fills the column space */
-    margin: 0;      /* Remove any margin between items */
+    display: flex; /* Flexbox to center images */
+    justify-content: center; /* Center images */
+    width: 100%; /* Ensure each item fills its column */
+    margin: 0; /* Remove margins */
 }
 
-/* Image Sizing (retaining original behavior) */
+/* Image Sizing */
 .portGallery .pics {
-    width: 100%;    /* Ensure images fill their container */
-    height: auto;   /* Maintain aspect ratio of images */
+    width: 100%; /* Ensure the images fill their grid cell */
+    height: auto; /* Maintain aspect ratio */
     transition: all 350ms ease;
     cursor: pointer;
+    object-fit: cover; /* Ensure images cover the entire area of each grid item */
 }
 
 /* Sidebar Styles */
