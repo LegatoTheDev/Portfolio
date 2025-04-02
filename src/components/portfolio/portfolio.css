@@ -1,43 +1,30 @@
-/* PortGallery Layout: Columns for larger screens */
+/* Main gallery styling */
 .portGallery {
-    -webkit-column-count: 3; /* Default to 3 columns for large screens */
-    -moz-column-count: 3;
-    column-count: 3;
-    -webkit-column-width: 33%; /* Divide into 3 equal columns */
-    -moz-column-width: 33%;
-    column-width: 33%;
-    padding: 0 0;
-    gap: .2rem; /* Gap between the images */
+    display: grid; /* Switch to grid layout for better control */
+    grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
+    gap: 0.2rem; /* Spacing between images */
+    padding: 0 10px; /* Optional: Add padding for space around the gallery */
 }
 
-/* Image transition on hover */
+/* Styling for the images */
 .portGallery .pics {
-    -webkit-transition: all 350ms ease;
-    transition: all 350ms ease;
+    width: 100%; /* Ensure images fill the column width */
+    height: auto; /* Keep aspect ratio of images */
+    transition: all 350ms ease; /* Image transition effect */
     cursor: pointer;
-    margin: 0 0; /* Remove margin between images */
 }
 
-/* Media Queries for Smaller Screens */
-
-/* For screens smaller than 768px, 2 columns */
+/* Media Query for medium screens (2 columns) */
 @media (max-width: 768px) {
     .portGallery {
-        -webkit-column-count: 2;
-        -moz-column-count: 2;
-        column-count: 2;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
     }
 }
 
-/* For screens smaller than 480px, 1 column */
-@media (max-width: 480px) { 
+/* Media Query for small screens (1 column) */
+@media (max-width: 480px) {
     .portGallery {
-        -webkit-column-count: 1;
-        -moz-column-count: 1;
-        column-count: 1;
-        -webkit-column-width: 100%;
-        -moz-column-width: 100%;
-        column-width: 100%;
+        grid-template-columns: 1fr; /* 1 column for small screens */
     }
 }
 
@@ -91,7 +78,7 @@
         width: 80%; /* Take up 80% of the viewport width on smaller screens */
     }
 }
-  
+
 @media (max-width: 480px) {
     .port-sidebar {
         width: 100%; /* Full width on very small screens */
