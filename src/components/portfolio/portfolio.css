@@ -1,51 +1,49 @@
-/* Main Portfolio Gallery Layout */
+/* Keep your original grid sizing approach */
 .portGallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal columns for large screens */
+    -webkit-column-count: 3; /* Default to 3 columns for large screens */
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-width: 33%; /* Divide into 3 equal columns */
+    -moz-column-width: 33%;
+    column-width: 33%;
+    padding: 0; /* No padding around the gallery */
     gap: 0.2rem; /* Small gap between images */
-    padding: 0; /* Remove padding */
-    width: 100%; /* Ensure full width */
 }
 
-/* Large screens (3 columns) */
-@media (min-width: 1024px) {
-    .portGallery {
-        grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    }
-}
-
-/* Medium screens (2 columns for tablets) */
+/* Keep your column-count adjustments for smaller screens */
 @media (max-width: 768px) {
     .portGallery {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        -webkit-column-count: 2; /* 2 columns for medium-sized screens */
+        -moz-column-count: 2;
+        column-count: 2;
     }
 }
 
-/* Small screens (1 column for mobiles) */
 @media (max-width: 480px) {
     .portGallery {
-        grid-template-columns: 1fr; /* 1 column */
+        -webkit-column-count: 1; /* 1 column for small screens */
+        -moz-column-count: 1;
+        column-count: 1;
+        -webkit-column-width: 100%;
+        -moz-column-width: 100%;
+        column-width: 100%;
     }
 }
 
-/* Gallery Item Styling */
+/* Item Style for Flexibility */
 .portGallery > .item {
-    display: flex; /* Flexbox to center images */
-    justify-content: center; /* Center images */
-    width: 100%; /* Ensure each item fills its column */
-    margin: 0; /* Remove margins */
+    margin: 0; /* Ensure no margin between items */
 }
 
-/* Image Sizing */
+/* Image Styling (Retaining your original sizing) */
 .portGallery .pics {
-    width: 100%; /* Ensure the images fill their grid cell */
+    width: 100%; /* Ensure each image takes up the full width of the column */
     height: auto; /* Maintain aspect ratio */
     transition: all 350ms ease;
     cursor: pointer;
-    object-fit: cover; /* Ensure images cover the entire area of each grid item */
 }
 
-/* Sidebar Styles */
+/* Sidebar Styles (Unchanged) */
 .port-sidebar {
     position: fixed;
     top: 0;
@@ -78,12 +76,11 @@
     right: 20px;
 }
 
-/* Sidebar content */
+/* Other Content Sections (Unchanged) */
 .sidebar-content {
     margin: 10%;
 }
 
-/* Other Images Section (if needed for extra gallery items) */
 .other-images {
     display: flex;
     gap: 10px;
