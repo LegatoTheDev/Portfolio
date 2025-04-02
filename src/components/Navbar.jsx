@@ -8,7 +8,7 @@ const Navbar = () => {
     return (
     <div className="nav-container">
        <Sidebar/>
-       <img className="legato" src="/images/LEGATO STUDIOS  _  LAZARR JOHNSON  GrAPHIC DESIGNER + FULL STAC.png"></img>
+{/*        <img className="legato" src="/images/LEGATO STUDIOS  _  LAZARR JOHNSON  GrAPHIC DESIGNER + FULL STAC.png"></img> */}
        <div className="nav-wrap">
         <ul className="nav-ul">
         <li><a href="#"> LEGATO LLC | Lazarr Johnson </a></li>
