@@ -1,34 +1,51 @@
-/* Main gallery styling */
+/* Main Portfolio Gallery Layout */
 .portGallery {
-    display: grid; /* Switch to grid layout for better control */
-    grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
-    gap: 0.2rem; /* Spacing between images */
-    padding: 0 10px; /* Optional: Add padding for space around the gallery */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns for large screens */
+    gap: 0.2rem; /* Small gap between images */
+    padding: 0; /* Remove padding */
+    width: 100%; /* Ensure full width */
 }
 
-/* Styling for the images */
-.portGallery .pics {
-    width: 100%; /* Ensure images fill the column width */
-    height: auto; /* Keep aspect ratio of images */
-    transition: all 350ms ease; /* Image transition effect */
-    cursor: pointer;
+/* Large screens (3 columns) */
+@media (min-width: 1024px) {
+    .portGallery {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    }
 }
 
-/* Media Query for medium screens (2 columns) */
+/* Medium screens (2 columns for tablets) */
 @media (max-width: 768px) {
     .portGallery {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
     }
 }
 
-/* Media Query for small screens (1 column) */
+/* Small screens (1 column for mobiles) */
 @media (max-width: 480px) {
     .portGallery {
-        grid-template-columns: 1fr; /* 1 column for small screens */
+        grid-template-columns: 1fr; /* 1 column */
     }
 }
 
-/* Sidebar Styling */
+/* Gallery Item Styling */
+.portGallery > .item {
+    display: flex; /* Flexbox to center images */
+    justify-content: center; /* Center images */
+    width: 100%; /* Ensure each item fills its column */
+    margin: 0; /* Remove margins */
+}
+
+/* Image Sizing */
+.portGallery .pics {
+    width: 100%; /* Ensure the images fill their grid cell */
+    height: auto; /* Maintain aspect ratio */
+    transition: all 350ms ease;
+    cursor: pointer;
+    object-fit: cover; /* Ensure images cover the entire area of each grid item */
+}
+
+/* Sidebar Styles */
 .port-sidebar {
     position: fixed;
     top: 0;
@@ -49,6 +66,7 @@
     transform: translateX(0); /* Slide-in when open */
 }
 
+/* Close button inside sidebar */
 .close-btn {
     background-color: red;
     color: white;
@@ -60,7 +78,12 @@
     right: 20px;
 }
 
-/* Other Images Styling */
+/* Sidebar content */
+.sidebar-content {
+    margin: 10%;
+}
+
+/* Other Images Section (if needed for extra gallery items) */
 .other-images {
     display: flex;
     gap: 10px;
@@ -71,21 +94,7 @@
     width: 100%;
 }
 
-/* Sidebar styling for smaller screens */
-@media (max-width: 768px) {
-    .port-sidebar {
-        position: fixed;
-        width: 80%; /* Take up 80% of the viewport width on smaller screens */
-    }
-}
-
-@media (max-width: 480px) {
-    .port-sidebar {
-        width: 100%; /* Full width on very small screens */
-    }
-}
-
-/* Overlay Styling */
+/* Overlay Styles (for sidebar background overlay) */
 .overlay {
     position: fixed;
     top: 0;
@@ -97,7 +106,7 @@
     cursor: pointer;
 }
 
-/* Text Styling */
+/* Paragraph Styling */
 p {
     font-family: monospace;
     letter-spacing: 0.07em;
